@@ -16,9 +16,9 @@ const Registration = () => {
       <View style={style.container}>
         <Container>
           <TextField placeholder="Seu nome" iconName="user" />
-          <TextField placeholder="Seu telefone" iconName="user" />
-          <TextField placeholder="Seu celular" iconName="user" />
-          <TextField placeholder="Seu e-mail" iconName="user" />
+          <TextField placeholder="Seu telefone" iconName="phone" />
+          <TextField placeholder="Seu celular" iconName="smartphone" />
+          <TextField placeholder="Seu e-mail" iconName="at-sign" />
         </Container>
 
         <Submit

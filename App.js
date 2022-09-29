@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text} from 'react-native';
+
+import Registration from './src/pages/Registration/Registration';
 
 const App = () => {
-  return <Text>OI</Text>;
+  return <Registration />;
 };
 
 export default App;

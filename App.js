@@ -1,8 +1,7 @@
 import React from 'react';
+import Registration from './src/pages/Registration/Registration';
 
 const App = () => {
-  const Stack = createStackNavigator();
-
   return <Registration />;
 };
 

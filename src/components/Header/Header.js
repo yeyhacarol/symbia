@@ -38,7 +38,7 @@ const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'light',
     color: '#000',
-    marginBottom: 40,
+    marginBottom: 20,
   },
 });
 

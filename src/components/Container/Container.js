@@ -5,10 +5,10 @@ const Container = ({children}) => {
   return <View style={style.container}>{children}</View>;
 };
 
-style = StyleSheet.create({
+const style = StyleSheet.create({
   container: {
     width: '100%',
-    minHeight: 500,
+    minHeight: 450,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

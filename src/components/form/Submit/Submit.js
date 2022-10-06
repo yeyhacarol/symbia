@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 
-const Submit = ({title, instruction, children}) => {
+const Submit = ({title, instruction, children, onPress = () => {}}) => {
   return (
     <View style={style.container}>
-      <TouchableOpacity style={style.button}>
+      <TouchableOpacity style={style.button} onPress={onPress}>
         <Text style={style.title}>{title}</Text>
       </TouchableOpacity>
       {instruction ? (

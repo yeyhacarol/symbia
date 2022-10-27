@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
+import Toast from 'react-native-toast-message';
 
 import api from '../../services/api';
 
@@ -43,8 +44,9 @@ const Registration = () => {
     }
     if (!inputs.telephone) {
       validate = false;
-      handleErrors('Preencha seu telefone.', 'telephone');
+      handleErrors('Preencha seu telefone corretamente.', 'telephone');
     }
+
     if (!inputs.smartphone) {
       validate = false;
       handleErrors('Preencha seu celular.', 'smartphone');
@@ -55,6 +57,11 @@ const Registration = () => {
     }
 
     if (validate) {
+      Toast.show({
+        type: 'success',
+        text1: 'Cadastrado com sucesso.',
+      });
+
       registration();
     }
 
@@ -94,6 +101,7 @@ const Registration = () => {
           <TextField
             placeholder="Seu telefone"
             iconName="phone"
+            maxLength={10}
             onFocus={() => handleErrors('', 'telephone')}
             onChangeText={text => handleOnChange(text, 'telephone')}
             error={error.telephone}
@@ -101,6 +109,7 @@ const Registration = () => {
           <TextField
             placeholder="Seu celular"
             iconName="smartphone"
+            maxLength={11}
             onFocus={() => handleErrors('', 'smartphone')}
             onChangeText={text => handleOnChange(text, 'smartphone')}
             error={error.smartphone}
@@ -119,8 +128,17 @@ const Registration = () => {
         </Text>
 
         <Container>
-          <TextField placeholder="Nome do responsável" iconName="users" />
-          <TextField placeholder="Telefone do responsável" iconName="phone" />
+          <TextField
+            placeholder="Nome do responsável"
+            iconName="users"
+            onChangeText={text => handleOnChange(text, 'responsibleName')}
+          />
+          <TextField
+            placeholder="Telefone do responsável"
+            iconName="phone"
+            maxLength={10}
+            onChangeText={text => handleOnChange(text, 'responsiblePhone')}
+          />
         </Container>
 
         <Submit

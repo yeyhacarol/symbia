@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
 
+import api from '../../services/api';
+
 import Header from '../../components/Header/Header';
 import Container from '../../components/Container/Container';
 import Submit from '../../components/form/Submit/Submit';
@@ -9,7 +11,7 @@ import TextField from '../../components/form/Input/Input';
 const Registration = () => {
   const [inputs, setInputs] = useState({
     name: '',
-    phone: '',
+    telephone: '',
     smartphone: '',
     email: '',
     responsibleName: '',
@@ -33,15 +35,15 @@ const Registration = () => {
   };
 
   const handleValidate = () => {
-    let validate = false;
+    let validate = true;
 
     if (!inputs.name) {
       validate = false;
       handleErrors('Preencha seu nome.', 'name');
     }
-    if (!inputs.phone) {
+    if (!inputs.telephone) {
       validate = false;
-      handleErrors('Preencha seu telefone.', 'phone');
+      handleErrors('Preencha seu telefone.', 'telephone');
     }
     if (!inputs.smartphone) {
       validate = false;
@@ -52,7 +54,26 @@ const Registration = () => {
       handleErrors('Preencha seu e-mail.', 'email');
     }
 
+    if (validate) {
+      registration();
+    }
+
     console.log(error);
+  };
+
+  const registration = () => {
+    try {
+      const res = api.post('patientregistry', {
+        name: inputs.name,
+        telephone: inputs.telephone,
+        smartphone: inputs.smartphone,
+        email: inputs.email,
+        responsibleName: inputs.responsibleName,
+        responsiblePhone: inputs.responsiblePhone,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -73,9 +94,9 @@ const Registration = () => {
           <TextField
             placeholder="Seu telefone"
             iconName="phone"
-            onFocus={() => handleErrors('', 'phone')}
-            onChangeText={text => handleOnChange(text, 'phone')}
-            error={error.phone}
+            onFocus={() => handleErrors('', 'telephone')}
+            onChangeText={text => handleOnChange(text, 'telephone')}
+            error={error.telephone}
           />
           <TextField
             placeholder="Seu celular"

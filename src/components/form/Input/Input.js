@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import {Input} from 'react-native-elements';
 
 const TextField = ({placeholder, iconName, error, ...props}) => {
   return (
-    <>
+    <View style={style.inputContainer}>
       <Input
         style={style.input}
         placeholder={placeholder}
@@ -14,22 +14,26 @@ const TextField = ({placeholder, iconName, error, ...props}) => {
         {...props}
       />
       <Text style={style.errorMessage}>{error}</Text>
-    </>
+    </View>
   );
 };
 
 const style = StyleSheet.create({
+  inputContainer: {
+    width: '100%',
+    marginBottom: 20,
+  },
   input: {
     fontFamily: 'Montserrat-Regular',
     color: '#fff',
     width: '100%',
-    height: 25,
   },
   errorMessage: {
     fontFamily: 'Montserrat-Regular',
     color: '#fff',
     alignSelf: 'flex-start',
     paddingLeft: 10,
+    marginTop: -25,
   },
 });
 

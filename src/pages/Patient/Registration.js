@@ -102,6 +102,7 @@ const Registration = () => {
             placeholder="Seu telefone"
             iconName="phone"
             maxLength={10}
+            keyboardType="numeric"
             onFocus={() => handleErrors('', 'telephone')}
             onChangeText={text => handleOnChange(text, 'telephone')}
             error={error.telephone}
@@ -110,6 +111,7 @@ const Registration = () => {
             placeholder="Seu celular"
             iconName="smartphone"
             maxLength={11}
+            keyboardType="numeric"
             onFocus={() => handleErrors('', 'smartphone')}
             onChangeText={text => handleOnChange(text, 'smartphone')}
             error={error.smartphone}
@@ -137,6 +139,7 @@ const Registration = () => {
             placeholder="Telefone do responsável"
             iconName="phone"
             maxLength={10}
+            keyboardType="numeric"
             onChangeText={text => handleOnChange(text, 'responsiblePhone')}
           />
         </Container>

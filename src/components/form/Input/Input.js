@@ -4,12 +4,11 @@ import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {Input} from 'react-native-elements';
 
-const TextField = ({placeholder, iconName, error, ...props}) => {
+const TextField = ({iconName, error, ...props}) => {
   return (
     <View style={style.inputContainer}>
       <Input
         style={style.input}
-        placeholder={placeholder}
         rightIcon={<Icon name={iconName} size={30} color="white" />}
         {...props}
       />

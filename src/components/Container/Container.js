@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-const Container = ({children}) => {
-  return <View style={style.container}>{children}</View>;
+const Container = ({children, className}) => {
+  return <View style={[style.container, className]}>{children}</View>;
 };
 
 const style = StyleSheet.create({
